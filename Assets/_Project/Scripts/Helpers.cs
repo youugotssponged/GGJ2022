@@ -1,24 +1,31 @@
-using System.IO;
 using System.Collections.Generic;
+
+#if UNITY_EDITOR
 using UnityEditor;
+using static UnityEditor.AssetDatabase;
+#endif
+
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.Application;
 using static System.IO.Directory;
 using static System.IO.Path;
-using static UnityEngine.Application;
-using static UnityEditor.AssetDatabase;
 
 namespace GGJ2022 {
 
     public static class JStateTests
     {
+#if UNITY_EDITOR
         [MenuItem("TestFuncs/StateManagers/ChangeToMainMenuState")]
+#endif
         public static void ChangeSceneToMainMenu()
         {
             GlobalSceneManager._Instance?.UpdateSceneManagerState(GlobalSceneManager.SceneManagerState.MAINMENU);
         }
 
+#if UNITY_EDITOR
         [MenuItem("TestFuncs/StateManagers/ChangeToSplashScreenState")]
+#endif
         public static void ChangeSceneToSplashScreen()
         {
             GlobalSceneManager._Instance?.UpdateSceneManagerState(GlobalSceneManager.SceneManagerState.SPLASHSCREEN);
@@ -27,7 +34,10 @@ namespace GGJ2022 {
 
     public static class JToolsMenu 
     {
+#if UNITY_EDITOR
         [MenuItem("Tools/Setup/CreateDefaultFolders")]
+#endif
+
         public static void CreateDefaultFolders()
         {
             var root = "_Project";
@@ -41,7 +51,10 @@ namespace GGJ2022 {
             };
             
             CreateDirectories(root, dirs);
+
+#if UNITY_EDITOR
             Refresh();
+#endif
         }
 
         public static void CreateDirectories(string root, params string[] dirs) 
