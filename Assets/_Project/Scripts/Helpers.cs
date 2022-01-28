@@ -9,6 +9,22 @@ using static UnityEngine.Application;
 using static UnityEditor.AssetDatabase;
 
 namespace GGJ2022 {
+
+    public static class JStateTests
+    {
+        [MenuItem("TestFuncs/StateManagers/ChangeToMainMenuState")]
+        public static void ChangeSceneToMainMenu()
+        {
+            GlobalSceneManager._Instance?.UpdateSceneManagerState(GlobalSceneManager.SceneManagerState.MAINMENU);
+        }
+
+        [MenuItem("TestFuncs/StateManagers/ChangeToSplashScreenState")]
+        public static void ChangeSceneToSplashScreen()
+        {
+            GlobalSceneManager._Instance?.UpdateSceneManagerState(GlobalSceneManager.SceneManagerState.SPLASHSCREEN);
+        }
+    }
+
     public static class JToolsMenu 
     {
         [MenuItem("Tools/Setup/CreateDefaultFolders")]
