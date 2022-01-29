@@ -17,6 +17,8 @@ public class GlobalSceneManager : MonoBehaviour
         ENDSCREEN_BAD,
         CREDITS,
         LOADINGSCREEN,
+        SETTINGS,
+        INSTRUCTIONS,
     }
 
     public SceneManagerState CurrentSceneManagerState; 
@@ -62,6 +64,14 @@ public class GlobalSceneManager : MonoBehaviour
 
             case SceneManagerState.LOADINGSCREEN:
                 SceneManager.LoadScene("LOADINGSCREEN");
+                break;
+
+            case SceneManagerState.SETTINGS:
+                SceneManager.LoadScene("Settings");
+                break;
+
+            case SceneManagerState.INSTRUCTIONS:
+                SceneManager.LoadScene("Instructions");
                 break;
 
             default:
