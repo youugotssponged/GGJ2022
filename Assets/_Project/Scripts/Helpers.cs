@@ -16,6 +16,14 @@ namespace GGJ2022 {
     public static class JStateTests
     {
 #if UNITY_EDITOR
+        [MenuItem("TestFuncs/StateManagers/ChangeToLoadingState")]
+#endif
+        public static void ChangeStateToLoading()
+        {
+            GlobalStateManager._Instance?.UpdateGameState(GlobalStateManager.GameState.LOADING);
+        }
+
+#if UNITY_EDITOR
         [MenuItem("TestFuncs/StateManagers/ChangeToMainMenuState")]
 #endif
         public static void ChangeSceneToMainMenu()
