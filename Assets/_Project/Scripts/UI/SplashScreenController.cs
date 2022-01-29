@@ -22,7 +22,7 @@ public class SplashScreenController : MonoBehaviour
 
     private IEnumerator FadeInSplashScreen()
     {
-        for (float i = 3; i >= 0; i -= Time.deltaTime) 
+        for (float i = 2; i >= 0; i -= Time.deltaTime) 
         {
             // set color with i as alpha
             var c = new Color(0, 0, 0, i);
@@ -31,9 +31,21 @@ public class SplashScreenController : MonoBehaviour
         }
     }
 
-    private IEnumerator WaitForVideoToEnd(){
-        yield return new WaitForSeconds(11);
+    private IEnumerator FadeVideoOut(){
+        for (float i = 0; i <= 1; i += Time.deltaTime) 
+        {
+            // set color with i as alpha
+            var c = new Color(0, 0, 0, i);
+            SplashScreenVideoCover.color = c;
+            yield return null;
+        }
         GlobalSceneManager._Instance.UpdateSceneManagerState(GlobalSceneManager.SceneManagerState.MAINMENU);
+    }
+
+
+    private IEnumerator WaitForVideoToEnd(){
+        yield return new WaitForSeconds(13);
+        StartCoroutine(FadeVideoOut());
     }
 
     private void SkipScene() => 
