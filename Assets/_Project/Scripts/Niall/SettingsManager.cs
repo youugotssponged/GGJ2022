@@ -6,11 +6,14 @@ using System.Threading.Tasks;
 public class SettingsManager : MonoBehaviour
 {
 
-    public static Dictionary<string, string> settings = new Dictionary<string, string>() {
+    public static Dictionary<string, string> defaultSettings = new Dictionary<string, string>() {
         {"mVol", "50"},
         {"fullscreen", "1"},
         {"resolution", ""},
+        {"sens", "5"},
     };
+
+    public static Dictionary<string, string> settings = defaultSettings;
 
     // Start is called before the first frame update
     void Start()
