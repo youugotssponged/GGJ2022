@@ -33,19 +33,18 @@ public class MoveTo : MonoBehaviour
     {
         if (CurrentChaseState == ChaseState.Chasing)
         {
-            Debug.Log("Following Player");
+            Debug.Log("Chasing");
             agent.destination = Player.transform.position;
             PlayerLastSeenPosition = agent.destination;
             TargetCooldown = 100f;
         }
         else if (CurrentChaseState == ChaseState.Searching)
         {
-            Debug.Log("Searching last location");
-
+            Debug.Log("Searching");
             if (agent.destination != PlayerLastSeenPosition)
                 agent.destination = PlayerLastSeenPosition;
 
-            TargetCooldown -= 0.05f;
+            TargetCooldown -= 0.02f;
 
             if (TargetCooldown <= 0)
             {
@@ -54,6 +53,7 @@ public class MoveTo : MonoBehaviour
         }
         else
         {
+            Debug.Log("Normal movement");
             TargetCooldown = 100f;
             CurrentChaseState = ChaseState.Lost;
             UpdateNavAgentDestination();
