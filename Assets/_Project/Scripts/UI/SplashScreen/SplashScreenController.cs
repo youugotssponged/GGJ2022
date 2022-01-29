@@ -8,8 +8,9 @@ public class SplashScreenController : MonoBehaviour
     {
         if(SplashScreenVideoCover == null)
             SplashScreenVideoCover = GetComponent<Image>();
-
+            
          StartCoroutine(FadeInSplashScreen());
+         StartCoroutine(WaitForVideoToEnd());
     }
 
     // Update is called once per frame
@@ -28,6 +29,11 @@ public class SplashScreenController : MonoBehaviour
             SplashScreenVideoCover.color = c;
             yield return null;
         }
+    }
+
+    private IEnumerator WaitForVideoToEnd(){
+        yield return new WaitForSeconds(11);
+        GlobalSceneManager._Instance.UpdateSceneManagerState(GlobalSceneManager.SceneManagerState.MAINMENU);
     }
 
     private void SkipScene() => 
