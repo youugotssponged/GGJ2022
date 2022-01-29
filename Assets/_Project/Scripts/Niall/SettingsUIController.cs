@@ -49,10 +49,10 @@ public class SettingsUIController : MonoBehaviour
         resDropdown.SetValueWithoutNotify(resIndex);
         mVol.SetValueWithoutNotify(int.Parse(SettingsManager.settings["mVol"]));
         fullscreenToggle.SetIsOnWithoutNotify((SettingsManager.settings["fullscreen"] == "1") ? true : false);
-        foreach (KeyValuePair<string, KeyCode> pair in InputMapper.controls) {
+        foreach (KeyValuePair<string, string> pair in InputMapper.controls) {
             Text keyText = GetComponentsInChildren<Text>().First(Text => Text.gameObject.name == pair.Key);
             Button keyButton = keyText.GetComponentInChildren<Button>();
-            keyButton.GetComponentInChildren<Text>().text = ((char)pair.Value).ToString().ToUpper();
+            keyButton.GetComponentInChildren<Text>().text = (pair.Value).ToString().ToUpper();
         }
         updateSettings();
     }
@@ -101,8 +101,8 @@ public class SettingsUIController : MonoBehaviour
     }
 
     //returns blank if key does not exist, or returns the name of the function it is bound to
-    string keyAlreadyExists(KeyCode key, string currentKeyMap) {
-        foreach (KeyValuePair<string, KeyCode> pair in InputMapper.controls) {
+    string keyAlreadyExists(string key, string currentKeyMap) {
+        foreach (KeyValuePair<string, string> pair in InputMapper.controls) {
             if (pair.Value == key && pair.Key != currentKeyMap)
                 return pair.Key;
         }
@@ -116,23 +116,22 @@ public class SettingsUIController : MonoBehaviour
                 updateControls(editingKeyMap, InputMapper.controls[editingKeyMap]);
                 return;
             }
-            updateControls(editingKeyMap, e.keyCode);
+            updateControls(editingKeyMap, e.keyCode.ToString());
             editingKeyMap = "";
         }
     }
 
-    void updateControls(string keyMap, KeyCode code) {
+    void updateControls(string keyMap, string code) {
         InputMapper.controls[editingKeyMap] = code;
         Text keyText = GetComponentsInChildren<Text>().First(Text => Text.gameObject.name == keyMap);
         Button keyButton = keyText.GetComponentInChildren<Button>();
         keyButton.GetComponentInChildren<Text>().text = InputMapper.controls[editingKeyMap].ToString().ToUpper();
-
         String existingKey = keyAlreadyExists(code, editingKeyMap);
         if (existingKey != "") {
             Text oldKeyText = GetComponentsInChildren<Text>().First(Text => Text.gameObject.name == existingKey);
             Button oldButton = oldKeyText.GetComponentInChildren<Button>();
             oldButton.GetComponentInChildren<Text>().text = "Unbound";
-            InputMapper.controls[existingKey] = KeyCode.None;
+            InputMapper.controls[existingKey] = "None";
         }
     }
 
@@ -142,9 +141,12 @@ public class SettingsUIController : MonoBehaviour
         GlobalSceneManager._Instance.UpdateSceneManagerState(GlobalSceneManager.SceneManagerState.MAINMENU);
     }
 
+    public void cancel() {
+        GlobalSceneManager._Instance.UpdateSceneManagerState(GlobalSceneManager.SceneManagerState.MAINMENU);
+    }
+
     public void clearSettings() {
         PlayerPrefs.DeleteAll();
-        GlobalSceneManager._Instance.UpdateSceneManagerState(GlobalSceneManager.SceneManagerState.MAINMENU);
     }
 
 }

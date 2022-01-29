@@ -6,12 +6,12 @@ using UnityEngine;
 public class InputMapper : MonoBehaviour
 {
     private static readonly Dictionary<char, KeyCode> _keycodeCache = new Dictionary<char, KeyCode>();
-    public static Dictionary<string, KeyCode> controls = new Dictionary<string, KeyCode>() {
-        {"Forward", KeyCode.T},
-        {"Back", KeyCode.Y},
-        {"Left", KeyCode.A},
-        {"Right", KeyCode.D},
-        {"Interact", KeyCode.E},
+    public static Dictionary<string, string> controls = new Dictionary<string, string>() {
+        {"Forward", "W"},
+        {"Back", "S"},
+        {"Left", "A"},
+        {"Right", "D"},
+        {"Interact", "E"},
     };
 
     // Start is called before the first frame update
@@ -27,10 +27,10 @@ public class InputMapper : MonoBehaviour
     }
 
     public static void loadControls() {
-        Dictionary<string, KeyCode> newControls = new Dictionary<string, KeyCode>();
-        foreach (KeyValuePair<string, KeyCode> map in controls) {
+        Dictionary<string, string> newControls = new Dictionary<string, string>();
+        foreach (KeyValuePair<string, string> map in controls) {
             if (PlayerPrefs.HasKey(map.Key)) {
-                newControls[map.Key] = GetKeyCodeFromString(char.Parse(PlayerPrefs.GetString(map.Key)));
+                newControls[map.Key] = PlayerPrefs.GetString(map.Key);
             } else {
                 newControls[map.Key] = controls[map.Key];
             }
@@ -38,32 +38,47 @@ public class InputMapper : MonoBehaviour
         controls = newControls;
     }
 
-    static KeyCode GetKeyCodeFromString(char character) {
-        // Get from cache if it was taken before to prevent unnecessary enum parse
+    static KeyCode GetKeyCodeFromString(string character) {
         KeyCode code;
-        if (_keycodeCache.TryGetValue(character, out code)) return code;
-        // Cast to it's integer value
-        int alphaValue = character;
-        code = (KeyCode)Enum.Parse(typeof(KeyCode), alphaValue.ToString());
-        _keycodeCache.Add(character, code);
+        if (character.Length > 1) {
+            switch(character) {
+                case "UpArrow":
+                    code = KeyCode.UpArrow;
+                    break;
+                case "DownArrow":
+                    code = KeyCode.DownArrow;
+                    break;
+                case "LeftArrow":
+                    code = KeyCode.LeftArrow;
+                    break;
+                case "RightArrow":
+                    code = KeyCode.RightArrow;
+                    break;
+                default:
+                    code = KeyCode.None;
+                    break;
+            }
+        } else {
+            if (_keycodeCache.TryGetValue(char.Parse(character), out code)) return code;
+            // Cast to it's integer value
+            int alphaValue = char.Parse(character);
+            code = (KeyCode)Enum.Parse(typeof(KeyCode), alphaValue.ToString());
+            _keycodeCache.Add(char.Parse(character), code);
+        }
         return code;
     }
 
-    public static void SetKeyMap(string keyMap, KeyCode code) {
-        controls[keyMap] = code;
-    }
-
-    public static void SetKeyMap(string keyMap, char keyString) {
-        controls[keyMap] = GetKeyCodeFromString(keyString);
+    public static string GetKeyFromAction(string action) {
+        return controls[action];
     }
 
     public static bool GetKeyDown(string keyMap) {
-        return Input.GetKeyDown(controls[keyMap]);
+        return Input.GetKeyDown(GetKeyCodeFromString(controls[keyMap]));
     }
 
     public static void SaveControls() {
-        foreach (KeyValuePair<string, KeyCode> map in controls) {
-            PlayerPrefs.SetString(map.Key, ((char)(map.Value)).ToString());
+        foreach (KeyValuePair<string, string> map in controls) {
+            PlayerPrefs.SetString(map.Key, map.Value.ToString());
         }
         PlayerPrefs.Save();
     }
