@@ -9,8 +9,8 @@
 /[Bb]uilds/
 /[Ll]ogs/
 /[Mm]emoryCaptures/
-/[Uu]serSettings/
-/[Pp]rojectSettings/
+/UserSettings/Layouts/default-2021.dwlt
+/ProjectSettings/EditorBuildSettings.asset
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
