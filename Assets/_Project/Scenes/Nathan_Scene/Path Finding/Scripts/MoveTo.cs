@@ -4,9 +4,21 @@ using UnityEngine;
 
 public class MoveTo : MonoBehaviour
 {
+    public enum ChaseState
+    {
+        Chasing,
+        Searching,
+        Lost
+    }
+
     public Transform[] goals;
+    public GameObject FieldOfView;
+    public GameObject Player;
+    public ChaseState CurrentChaseState = ChaseState.Lost;
 
     private UnityEngine.AI.NavMeshAgent agent;
+    private float TargetCooldown = 100f;
+    private Vector3 PlayerLastSeenPosition;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +31,35 @@ public class MoveTo : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateNavAgentDestination();
+        if (CurrentChaseState == ChaseState.Chasing)
+        {
+            Debug.Log("Following Player");
+            agent.destination = Player.transform.position;
+            PlayerLastSeenPosition = agent.destination;
+            TargetCooldown = 100f;
+        }
+        else if (CurrentChaseState == ChaseState.Searching)
+        {
+            Debug.Log("Searching last location");
+
+            if (agent.destination != PlayerLastSeenPosition)
+                agent.destination = PlayerLastSeenPosition;
+
+            TargetCooldown -= 0.05f;
+
+            if (TargetCooldown <= 0)
+            {
+                CurrentChaseState = ChaseState.Lost;
+            }
+        }
+        else
+        {
+            TargetCooldown = 100f;
+            CurrentChaseState = ChaseState.Lost;
+            UpdateNavAgentDestination();
+        }
+
+
     }
 
     void UpdateNavAgentDestination()

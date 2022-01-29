@@ -7,9 +7,6 @@ public class PlayerMovement : MonoBehaviour
 {
     // Private properties
     Rigidbody PlayerRigidBody;
-    // Movement
-    private float LookUpDown;
-    private float LookLeftRight;
     // Running
     private float EnergyRemaining = 100f;
     private bool RunEnabled = false;
@@ -59,12 +56,12 @@ public class PlayerMovement : MonoBehaviour
     {
         float LookSensitivity = float.Parse(SettingsManager.settings["sens"]);
         // Camera look/rotation control
-        LookLeftRight += Input.GetAxis("Mouse X") * LookSensitivity;
-        LookUpDown += Input.GetAxis("Mouse Y") * LookSensitivity;
-        transform.rotation = Quaternion.Euler(0f, LookLeftRight, 0f);
+        var lookLeftRight = Input.GetAxis("Mouse X") * LookSensitivity;
+        var lookUpDown = Input.GetAxis("Mouse Y") * -LookSensitivity;
 
-        LookUpDown = Mathf.Clamp(LookUpDown, -90f, 90f);
-        PlayerCamera.transform.localRotation = Quaternion.Euler(-LookUpDown, 0f, 0f);
+        transform.Rotate(0, lookLeftRight, 0);
+
+        PlayerCamera.transform.Rotate(lookUpDown, 0, 0);
     }
     /// <summary>
     /// Handles the player jumping.
