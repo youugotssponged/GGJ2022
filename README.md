@@ -1,5 +1,9 @@
 # GGJ2022
-Repo for Global Game Jam 2022 - Team Null &amp; Void
+Repo for Global Game Jam 2022 - Team s7ns
+
+<img style="width: 20%; height: 20%;" src="./Assets/_Project/UI/FM2.jpg"></img>
+<img style="width: 20%; height: 20%;" src="./Assets/_Project/UI/s7ns_whote.png"></img>
+
 
 
 [![forthebadge](https://forthebadge.com/images/badges/60-percent-of-the-time-works-every-time.svg)](https://forthebadge.com)

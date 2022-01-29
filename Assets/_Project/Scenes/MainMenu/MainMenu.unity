@@ -397,6 +397,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6105256608153968375, guid: 010c9e779f5f8c540b29b006e8317751, type: 3}
+      propertyPath: BtnClick
+      value: 
+      objectReference: {fileID: 8300000, guid: a361cc700b640ad4ebd58112f072ec8f, type: 3}
+    - target: {fileID: 6105256608153968375, guid: 010c9e779f5f8c540b29b006e8317751, type: 3}
+      propertyPath: BtnHover
+      value: 
+      objectReference: {fileID: 8300000, guid: 540c4684410ed0b4690f3d41d5492bd4, type: 3}
+    - target: {fileID: 6105256608153968375, guid: 010c9e779f5f8c540b29b006e8317751, type: 3}
       propertyPath: MainMenuThemeMusic
       value: 
       objectReference: {fileID: 8300000, guid: 99398df31d7f1e34297db1a0b331773d, type: 3}

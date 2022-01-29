@@ -17,7 +17,7 @@ public class MainMenuController : MonoBehaviour
     }
 
     // UI Event handlers
-    public void PlaySoundOnClick() => AudioSource.PlayOneShot(BtnHover);
+    public void PlaySoundOnClick() => AudioSource.PlayOneShot(BtnClick);
     public void PlaySoundOnHover() => AudioSource.PlayOneShot(BtnHover);
 
     // Button Handlers for Main Menu, mainly for redirect

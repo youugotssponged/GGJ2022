@@ -139,10 +139,12 @@ public class SettingsUIController : MonoBehaviour
     public void saveSettings() {
         SettingsManager.saveSettings();
         InputMapper.SaveControls();
+        GlobalSceneManager._Instance.UpdateSceneManagerState(GlobalSceneManager.SceneManagerState.MAINMENU);
     }
 
     public void clearSettings() {
         PlayerPrefs.DeleteAll();
+        GlobalSceneManager._Instance.UpdateSceneManagerState(GlobalSceneManager.SceneManagerState.MAINMENU);
     }
 
 }

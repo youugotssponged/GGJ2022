@@ -67,7 +67,7 @@ public class GlobalSceneManager : MonoBehaviour
                 break;
 
             case SceneManagerState.SETTINGS:
-                SceneManager.LoadScene("Settings");
+                SceneManager.LoadScene("SettingsScene");
                 break;
 
             case SceneManagerState.INSTRUCTIONS:
