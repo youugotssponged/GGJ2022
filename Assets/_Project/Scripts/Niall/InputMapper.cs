@@ -39,33 +39,29 @@ public class InputMapper : MonoBehaviour
     }
 
     static KeyCode GetKeyCodeFromString(string character) {
-        KeyCode code;
-        if (character.Length > 1) {
-            switch(character) {
-                case "UpArrow":
-                    code = KeyCode.UpArrow;
-                    break;
-                case "DownArrow":
-                    code = KeyCode.DownArrow;
-                    break;
-                case "LeftArrow":
-                    code = KeyCode.LeftArrow;
-                    break;
-                case "RightArrow":
-                    code = KeyCode.RightArrow;
-                    break;
-                default:
-                    code = KeyCode.None;
-                    break;
-            }
-        } else {
-            if (_keycodeCache.TryGetValue(char.Parse(character), out code)) return code;
-            // Cast to it's integer value
-            int alphaValue = char.Parse(character);
-            code = (KeyCode)Enum.Parse(typeof(KeyCode), alphaValue.ToString());
-            _keycodeCache.Add(char.Parse(character), code);
-        }
-        return code;
+        // KeyCode code;
+        // if (character.Length > 1) {
+        //     switch(character) {
+        //         case "UpArrow":
+        //             code = KeyCode.UpArrow;
+        //             break;
+        //         case "DownArrow":
+        //             code = KeyCode.DownArrow;
+        //             break;
+        //         case "LeftArrow":
+        //             code = KeyCode.LeftArrow;
+        //             break;
+        //         case "RightArrow":
+        //             code = KeyCode.RightArrow;
+        //             break;
+        //         default:
+        //             code = KeyCode.None;
+        //             break;
+        //     }
+        // } else {
+        //     code = (KeyCode) System.Enum.Parse(typeof(KeyCode), character) ;
+        // }
+        return (KeyCode) System.Enum.Parse(typeof(KeyCode), character);
     }
 
     public static string GetKeyFromAction(string action) {
