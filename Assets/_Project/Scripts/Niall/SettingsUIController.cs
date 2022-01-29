@@ -11,6 +11,7 @@ public class SettingsUIController : MonoBehaviour
 
     public PauseMenuController pauseMenuController;
     Slider mVol;
+    Slider sensVal;
     Toggle fullscreenToggle;
     Dropdown resDropdown;
     String editingKeyMap = "";
@@ -20,8 +21,10 @@ public class SettingsUIController : MonoBehaviour
     {
         InputMapper.loadControls();
         SettingsManager.loadSettings();
-        List<Component> components = GetComponentsInChildren<Component>().ToList<Component>();
-        mVol = GetComponentInChildren<Slider>();
+        List<Slider> sliders = GetComponentsInChildren<Slider>().ToList();
+        mVol = sliders.First(slider => slider.name == "mVol");
+        sensVal = sliders.First(slider => slider.name == "sens");
+        //mVol = GetComponentInChildren<Slider>();
         fullscreenToggle = GetComponentInChildren<Toggle>();
         resDropdown = GetComponentInChildren<Dropdown>();
 
@@ -31,7 +34,7 @@ public class SettingsUIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void resetSettings() {
@@ -54,6 +57,7 @@ public class SettingsUIController : MonoBehaviour
             resIndex -= 1;
         resDropdown.SetValueWithoutNotify(resIndex);
         mVol.SetValueWithoutNotify(int.Parse(((reset) ? PlayerPrefs.GetString("mVol") : SettingsManager.settings["mVol"])));
+        sensVal.SetValueWithoutNotify(int.Parse(((reset) ? PlayerPrefs.GetString("sens") : SettingsManager.settings["sens"])));
         fullscreenToggle.SetIsOnWithoutNotify((((reset) ? PlayerPrefs.GetString("fullscreen") : SettingsManager.settings["fullscreen"]) == "1") ? true : false);
         foreach (KeyValuePair<string, string> pair in InputMapper.controls) {
             Text keyText = GetComponentsInChildren<Text>().First(Text => Text.gameObject.name == pair.Key);
@@ -65,6 +69,7 @@ public class SettingsUIController : MonoBehaviour
 
     void updateSettings() {
         updateMaxVolume();
+        updateSens();
         updateFullScreen();
         updateResolution();
     }
@@ -73,6 +78,11 @@ public class SettingsUIController : MonoBehaviour
         mVol.GetComponentInChildren<Text>().text = mVol.value.ToString();
         SettingsManager.settings["mVol"] = mVol.value.ToString();
         AudioListener.volume = mVol.value / 100;
+    }
+
+    public void updateSens() {
+        sensVal.GetComponentInChildren<Text>().text = sensVal.value.ToString();
+        SettingsManager.settings["sens"] = sensVal.value.ToString();
     }
 
     public void updateFullScreen() {
@@ -162,6 +172,9 @@ public class SettingsUIController : MonoBehaviour
 
     public void clearSettings() {
         PlayerPrefs.DeleteAll();
+        SettingsManager.settings = new Dictionary<string, string>(SettingsManager.defaultSettings);
+        InputMapper.controls = new Dictionary<string, string>(InputMapper.defaultControls);
+        initSettings(false);
     }
 
 }

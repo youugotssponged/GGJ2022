@@ -18,25 +18,23 @@ public class HidePlayer : MonoBehaviour
     private Rigidbody PlayerUseGravity;
     private Vector3 PlayerPosition;
 
-    private string HideMessage = "Press 'E' to hide";
-    private string LeaveMessage = "Press 'E' to leave";
-
     // Start is called before the first frame update
     void Start()
     {
         PlayerScript = player.GetComponent<PlayerMovement>();
         PlayerColliderEnabled = player.GetComponent<BoxCollider>();
         PlayerUseGravity = player.GetComponent<Rigidbody>();
+        InputMapper.loadControls();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (CurrentlyHiding && Input.GetKeyDown(KeyCode.E))
+        if (CurrentlyHiding && InputMapper.GetKeyDown("Interact"))
         {
             StopHiding();
         }
-        else if (CanHide && Input.GetKeyDown(KeyCode.E))
+        else if (CanHide && InputMapper.GetKeyDown("Interact"))
         {
             Hide();
         }
@@ -44,7 +42,7 @@ public class HidePlayer : MonoBehaviour
 
     void Hide()
     {
-        HideText.text = LeaveMessage;
+        HideText.text = $"Press '{InputMapper.controls["Interact"]}' to leave";
         PlayerScript.CanMove = false;
         PlayerColliderEnabled.enabled = false;
         PlayerUseGravity.useGravity = false;
@@ -76,7 +74,7 @@ public class HidePlayer : MonoBehaviour
     {
         if (other.gameObject == player)
         {
-            HideText.text = HideMessage;
+            HideText.text = $"Press '{InputMapper.controls["Interact"]}' to hide";
             CanHide = true;
         }
     }

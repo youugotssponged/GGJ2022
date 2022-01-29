@@ -23,7 +23,6 @@ public class PlayerMovement : MonoBehaviour
     public Camera PlayerCamera;
     public float WalkSpeed = 2f;
     public float RunSpeed = 4f;
-    public float LookSensitivity = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -49,8 +48,8 @@ public class PlayerMovement : MonoBehaviour
     {
         float movementSpeed = GetMovementSpeed();
         // Player movement control
-        var horizontal = Input.GetAxis("Horizontal");
-        var vertical = Input.GetAxis("Vertical");
+        var horizontal = InputMapper.GetAxis("Horizontal");
+        var vertical = InputMapper.GetAxis("Vertical");
         transform.Translate(new Vector3(horizontal, 0, vertical) * (movementSpeed * Time.deltaTime));
     }
     /// <summary>
@@ -58,6 +57,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void MoveCamera()
     {
+        float LookSensitivity = float.Parse(SettingsManager.settings["sens"]);
         // Camera look/rotation control
         LookLeftRight += Input.GetAxis("Mouse X") * LookSensitivity;
         LookUpDown += Input.GetAxis("Mouse Y") * LookSensitivity;
@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     /// </summary>
     private void PlayerJump()
     {
-        if (CanJump && Input.GetKeyDown(KeyCode.Space))
+        if (CanJump && InputMapper.GetKeyDown("Jump"))
         {
             CanJump = false;
             PlayerRigidBody.AddForce(Jump * JumpForce, ForceMode.Impulse);
@@ -83,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
     /// <returns></returns>
     private float GetMovementSpeed()
     {
-        if (Input.GetKey(KeyCode.LeftShift) && RunEnabled)
+        if (InputMapper.GetKey("Sprint") && RunEnabled)
         {
             CalculateEnergyRemaining(-0.03f);
             return RunSpeed;

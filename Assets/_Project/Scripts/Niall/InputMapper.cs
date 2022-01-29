@@ -6,13 +6,17 @@ using UnityEngine;
 public class InputMapper : MonoBehaviour
 {
     private static readonly Dictionary<char, KeyCode> _keycodeCache = new Dictionary<char, KeyCode>();
-    public static Dictionary<string, string> controls = new Dictionary<string, string>() {
+    public static Dictionary<string, string> defaultControls = new Dictionary<string, string>() {
         {"Forward", "W"},
         {"Back", "S"},
         {"Left", "A"},
         {"Right", "D"},
         {"Interact", "E"},
+        {"Jump", "Space"},
+        {"Sprint", "LeftShift"},
     };
+
+    public static Dictionary<string, string> controls = defaultControls;
 
     // Start is called before the first frame update
     void Start()
@@ -39,28 +43,6 @@ public class InputMapper : MonoBehaviour
     }
 
     static KeyCode GetKeyCodeFromString(string character) {
-        // KeyCode code;
-        // if (character.Length > 1) {
-        //     switch(character) {
-        //         case "UpArrow":
-        //             code = KeyCode.UpArrow;
-        //             break;
-        //         case "DownArrow":
-        //             code = KeyCode.DownArrow;
-        //             break;
-        //         case "LeftArrow":
-        //             code = KeyCode.LeftArrow;
-        //             break;
-        //         case "RightArrow":
-        //             code = KeyCode.RightArrow;
-        //             break;
-        //         default:
-        //             code = KeyCode.None;
-        //             break;
-        //     }
-        // } else {
-        //     code = (KeyCode) System.Enum.Parse(typeof(KeyCode), character) ;
-        // }
         return (KeyCode) System.Enum.Parse(typeof(KeyCode), character);
     }
 
@@ -68,8 +50,30 @@ public class InputMapper : MonoBehaviour
         return controls[action];
     }
 
+    public static bool GetKey(string keyMap) {
+        return Input.GetKey(GetKeyCodeFromString(controls[keyMap]));
+    }
+
     public static bool GetKeyDown(string keyMap) {
         return Input.GetKeyDown(GetKeyCodeFromString(controls[keyMap]));
+    }
+
+    public static float GetAxis(string axis) {
+        switch (axis) {
+            case "Horizontal":
+                if (GetKey("Right"))
+                    return 1;
+                if (GetKey("Left"))
+                    return -1;
+                break;
+            case "Vertical":
+                if (GetKey("Forward"))
+                    return 1;
+                if (GetKey("Back"))
+                    return -1;
+                break;
+        }
+        return 0;
     }
 
     public static void SaveControls() {
