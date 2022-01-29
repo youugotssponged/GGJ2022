@@ -9,6 +9,7 @@ using System.Linq;
 public class SettingsUIController : MonoBehaviour
 {
 
+    public PauseMenuController pauseMenuController;
     Slider mVol;
     Toggle fullscreenToggle;
     Dropdown resDropdown;
@@ -24,8 +25,7 @@ public class SettingsUIController : MonoBehaviour
         fullscreenToggle = GetComponentInChildren<Toggle>();
         resDropdown = GetComponentInChildren<Dropdown>();
 
-        initSettings();
-        initControls();
+        initSettings(false);
     }
 
     // Update is called once per frame
@@ -34,31 +34,33 @@ public class SettingsUIController : MonoBehaviour
         
     }
 
-    void initSettings() {
+    void resetSettings() {
+        foreach (KeyValuePair<string, string> pair in InputMapper.controls) {
+            Text keyText = GetComponentsInChildren<Text>().First(text => text.gameObject.name == pair.Key);
+        }
+    }
+
+    void initSettings(bool reset) {
         resDropdown.ClearOptions();
         int resIndex = 0;
         Resolution[] resolutions = Screen.resolutions.Reverse().ToArray();
         for (int i = 0; i < resolutions.Length; i++) {
             Resolution res = resolutions[i];
             resDropdown.options.Add(new Dropdown.OptionData() {text = res.ToString()});
-            if (res.ToString() == SettingsManager.settings["resolution"])
+            if (res.ToString() == ((reset) ? PlayerPrefs.GetString("resolution") : SettingsManager.settings["resolution"]))
                 resIndex = i;
         }
         if (resIndex == 0)
             resIndex -= 1;
         resDropdown.SetValueWithoutNotify(resIndex);
-        mVol.SetValueWithoutNotify(int.Parse(SettingsManager.settings["mVol"]));
-        fullscreenToggle.SetIsOnWithoutNotify((SettingsManager.settings["fullscreen"] == "1") ? true : false);
+        mVol.SetValueWithoutNotify(int.Parse(((reset) ? PlayerPrefs.GetString("mVol") : SettingsManager.settings["mVol"])));
+        fullscreenToggle.SetIsOnWithoutNotify((((reset) ? PlayerPrefs.GetString("fullscreen") : SettingsManager.settings["fullscreen"]) == "1") ? true : false);
         foreach (KeyValuePair<string, string> pair in InputMapper.controls) {
             Text keyText = GetComponentsInChildren<Text>().First(Text => Text.gameObject.name == pair.Key);
             Button keyButton = keyText.GetComponentInChildren<Button>();
-            keyButton.GetComponentInChildren<Text>().text = (pair.Value).ToString().ToUpper();
+            keyButton.GetComponentInChildren<Text>().text = ((reset) ? PlayerPrefs.GetString(pair.Key) : pair.Value).ToString().ToUpper();
         }
         updateSettings();
-    }
-
-    void initControls() {
-        
     }
 
     void updateSettings() {
@@ -135,14 +137,27 @@ public class SettingsUIController : MonoBehaviour
         }
     }
 
+    bool inSettingsScene() {
+        return (GlobalSceneManager._Instance.CurrentSceneManagerState == GlobalSceneManager.SceneManagerState.SETTINGS);
+    }
+
     public void saveSettings() {
         SettingsManager.saveSettings();
         InputMapper.SaveControls();
-        GlobalSceneManager._Instance.UpdateSceneManagerState(GlobalSceneManager.SceneManagerState.MAINMENU);
+        if (inSettingsScene()) {
+            GlobalSceneManager._Instance.UpdateSceneManagerState(GlobalSceneManager.SceneManagerState.MAINMENU);
+        } else {
+            pauseMenuController.CloseSettings();
+        }
     }
 
     public void cancel() {
-        GlobalSceneManager._Instance.UpdateSceneManagerState(GlobalSceneManager.SceneManagerState.MAINMENU);
+        if (inSettingsScene()) {
+            GlobalSceneManager._Instance.UpdateSceneManagerState(GlobalSceneManager.SceneManagerState.MAINMENU);
+        } else {
+            pauseMenuController.CloseSettings();
+            initSettings(true);
+        }
     }
 
     public void clearSettings() {
