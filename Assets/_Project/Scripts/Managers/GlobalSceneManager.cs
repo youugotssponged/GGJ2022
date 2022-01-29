@@ -13,8 +13,7 @@ public class GlobalSceneManager : MonoBehaviour
         LEVEL_ANGER,
         LEVEL_DEPRESSION,
         LEVEL_ACCEPTANCE,
-        ENDSCREEN_GOOD,
-        ENDSCREEN_BAD,
+        DECISION_CORRIDOR,
         CREDITS,
         LOADINGSCREEN,
         SETTINGS,
@@ -73,6 +72,10 @@ public class GlobalSceneManager : MonoBehaviour
             case SceneManagerState.INSTRUCTIONS:
                 SceneManager.LoadScene("Instructions");
                 break;
+            
+            // rEVISIT
+            //case SceneManagerState.DECISION_CORRIDOR:
+                
 
             default:
                 break;
