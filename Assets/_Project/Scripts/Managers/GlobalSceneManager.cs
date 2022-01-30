@@ -13,7 +13,6 @@ public class GlobalSceneManager : MonoBehaviour
         LEVEL_ANGER,
         LEVEL_DEPRESSION,
         LEVEL_ACCEPTANCE,
-        DECISION_CORRIDOR,
         CREDITS,
         LOADINGSCREEN,
         SETTINGS,
@@ -29,6 +28,21 @@ public class GlobalSceneManager : MonoBehaviour
     {
         _Instance = this;
         DontDestroyOnLoad(gameObject);
+    }
+
+    private void Update()
+    {
+        // FOR DEMO
+        if(Input.GetKeyDown(KeyCode.Alpha7))
+            UpdateSceneManagerState(SceneManagerState.LEVEL_DENIAL);
+        if(Input.GetKeyDown(KeyCode.Alpha8))
+            UpdateSceneManagerState(SceneManagerState.LEVEL_ANGER);
+        if(Input.GetKeyDown(KeyCode.Alpha9))
+            UpdateSceneManagerState(SceneManagerState.LEVEL_DEPRESSION);
+        if(Input.GetKeyDown(KeyCode.Alpha0))
+            UpdateSceneManagerState(SceneManagerState.LEVEL_ACCEPTANCE);
+        if(Input.GetKeyDown(KeyCode.Minus))
+            UpdateSceneManagerState(SceneManagerState.CREDITS);
     }
 
     public void UpdateSceneManagerState(SceneManagerState sceneManagerState)
@@ -72,10 +86,6 @@ public class GlobalSceneManager : MonoBehaviour
             case SceneManagerState.INSTRUCTIONS:
                 SceneManager.LoadScene("Instructions");
                 break;
-            
-            // rEVISIT
-            //case SceneManagerState.DECISION_CORRIDOR:
-                
 
             default:
                 break;

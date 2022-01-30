@@ -36,26 +36,20 @@ public class GlobalStateManager : MonoBehaviour
                 HandleStartGameState();
                 break;
 
-            // No longer neeeded needed, loading is now an informational state
+            // loading is now an informational state
              case GameState.LOADING:
                  break;
-
-            // TODO: Handle states e.g what does the game manager have to do other than set curr state
             case GameState.ENDGAME_GOOD:
-                break;
             case GameState.ENDGAME_BAD:
-                break;
             case GameState.PLAYER_DEAD:
-                break;
             case GameState.PLAYER_NORMAL:
-                break;
             case GameState.PLAYER_SHADOW_REALM:
                 break;
 
             default: 
                 throw new ArgumentException(
-                    @"Game State: LIMBO, Game State Either Doesn't exist or 
-                        something went wrong... 
+                    @"Game State: [LIMBO], Game State Either Doesn't exist or 
+                        You forgot to add a case for your newly added State... 
                         Please check the Global State Manager");
         };
 
@@ -63,11 +57,6 @@ public class GlobalStateManager : MonoBehaviour
         OnGameStateChanged?.Invoke(gameState);
     }
 
-
     private void HandleStartGameState() =>
         GlobalSceneManager._Instance.UpdateSceneManagerState(GlobalSceneManager.SceneManagerState.LEVEL_DENIAL);
-   
-    // private void HandleLoadingState() =>
-    //     GlobalSceneManager._Instance.UpdateSceneManagerState(GlobalSceneManager.SceneManagerState.LOADINGSCREEN);
-
 }
