@@ -1,0 +1,672 @@
+fileFormatVersion: 2
+guid: e2a802c7b3e9d3d4d985df0085601a0e
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3480
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e42609990cd9f14faed346ed4f4a8ae
+      internalID: 551483703
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_1
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 3480
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44a8225923c56b8439c2f26a5bf5f696
+      internalID: -100412340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_2
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 3480
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2622d940784e124d91c5947c12d11bc
+      internalID: -267717628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_3
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 3480
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41e35ac601382b140bd9c2b5ea1af9c8
+      internalID: 1755293322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_4
+      rect:
+        serializedVersion: 2
+        x: 2444
+        y: 3480
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1555b3138264c3448dd88c30e496a05
+      internalID: 815290334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2610
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dac1b643719d03047a094481766608ca
+      internalID: -2062087670
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_6
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 2610
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f0f58d03df9e264fa0f945493d3069c
+      internalID: 372883236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_7
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 2610
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0924a9964ec942749903458ff4a46fe7
+      internalID: -1217001642
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_8
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 2610
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81e2be34977fdf644844857c7fcfd8e6
+      internalID: -1787979326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_9
+      rect:
+        serializedVersion: 2
+        x: 2444
+        y: 2610
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb8775315b5f4b54eb43d9a407df25ee
+      internalID: 1876004668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1740
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 511ee9708e3ae164d81ff0918c581ac0
+      internalID: -1057186880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_11
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 1740
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ca5c7106242a574c9866bf4ead1ff11
+      internalID: 745391169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_12
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 1740
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd6f17fccd687a44695ff9503f9726d7
+      internalID: -1077573475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_13
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 1740
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef8a3956dfe79164392f582a21675430
+      internalID: 585985486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_14
+      rect:
+        serializedVersion: 2
+        x: 2444
+        y: 1740
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e7d1af4b65bfd884d864fad65f0c1bbb
+      internalID: 1664290732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 870
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a784ad20efe9ccb439760b1aee859051
+      internalID: -1786645011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_16
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 870
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0846d5ae3defdf47bd6683599366fb6
+      internalID: 395643440
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_17
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 870
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aae5956a1a9bbc94888e9cb55903be0d
+      internalID: 58030198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_18
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 870
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5e4983cbf5d3204f90388273b5cd94f
+      internalID: -698587214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_19
+      rect:
+        serializedVersion: 2
+        x: 2444
+        y: 870
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2c84f240db1a04459037277970c6ee2
+      internalID: -658552150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 159f1063562313b458764fd45b8ede07
+      internalID: -1098375348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_21
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 0
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5657f3b1c5eaf024984cc54abcc24581
+      internalID: 819789147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_22
+      rect:
+        serializedVersion: 2
+        x: 1222
+        y: 0
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c953f87d35fbf8844ab724f63b1e69c3
+      internalID: -125362792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_23
+      rect:
+        serializedVersion: 2
+        x: 1833
+        y: 0
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 451b3543fc3e6f94fb58f3cddde80daf
+      internalID: 323212973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pinkFlameSpriteSheet4_24
+      rect:
+        serializedVersion: 2
+        x: 2444
+        y: 0
+        width: 611
+        height: 870
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1709c0af64338aa4891bfdb6d7a31532
+      internalID: -915844858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 420b88efd9fe23743bda648f319fdf81
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      pinkFlameSpriteSheet4_5: -2062087670
+      pinkFlameSpriteSheet4_20: -1098375348
+      pinkFlameSpriteSheet4_10: -1057186880
+      pinkFlameSpriteSheet4_3: 1755293322
+      pinkFlameSpriteSheet4_6: 372883236
+      pinkFlameSpriteSheet4_21: 819789147
+      pinkFlameSpriteSheet4_16: 395643440
+      pinkFlameSpriteSheet4_23: 323212973
+      pinkFlameSpriteSheet4_22: -125362792
+      pinkFlameSpriteSheet4_13: 585985486
+      pinkFlameSpriteSheet4_9: 1876004668
+      pinkFlameSpriteSheet4_2: -267717628
+      pinkFlameSpriteSheet4_0: 551483703
+      pinkFlameSpriteSheet4_1: -100412340
+      pinkFlameSpriteSheet4_15: -1786645011
+      pinkFlameSpriteSheet4_4: 815290334
+      pinkFlameSpriteSheet4_18: -698587214
+      pinkFlameSpriteSheet4_11: 745391169
+      pinkFlameSpriteSheet4_12: -1077573475
+      pinkFlameSpriteSheet4_8: -1787979326
+      pinkFlameSpriteSheet4_14: 1664290732
+      pinkFlameSpriteSheet4_24: -915844858
+      pinkFlameSpriteSheet4_19: -658552150
+      pinkFlameSpriteSheet4_17: 58030198
+      pinkFlameSpriteSheet4_7: -1217001642
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
