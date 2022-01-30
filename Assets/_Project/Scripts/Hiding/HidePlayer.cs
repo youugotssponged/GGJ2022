@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HidePlayer : MonoBehaviour
 {
-    public GameObject player;
+    public GameObject Player;
 
     public Text HideText;
 
@@ -21,9 +21,9 @@ public class HidePlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        PlayerScript = player.GetComponent<PlayerMovement>();
-        PlayerColliderEnabled = player.GetComponent<BoxCollider>();
-        PlayerUseGravity = player.GetComponent<Rigidbody>();
+        PlayerScript = Player.GetComponent<PlayerMovement>();
+        PlayerColliderEnabled = Player.GetComponent<CapsuleCollider>();
+        PlayerUseGravity = Player.GetComponent<Rigidbody>();
         InputMapper.loadControls();
     }
 
@@ -47,19 +47,19 @@ public class HidePlayer : MonoBehaviour
         PlayerColliderEnabled.enabled = false;
         PlayerUseGravity.useGravity = false;
 
-        PlayerPosition = player.transform.position;
-        player.transform.position = transform.position;
+        PlayerPosition = Player.transform.position;
+        Player.transform.position = transform.position;
 
-        player.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
+        Player.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
         PlayerScript.PlayerCamera.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
 
         CurrentlyHiding = true;
     }
     void StopHiding()
     {
-        player.transform.position = PlayerPosition;
+        Player.transform.position = PlayerPosition;
 
-        player.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
+        Player.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
         PlayerScript.PlayerCamera.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
 
         PlayerScript.CanMove = true;
@@ -72,7 +72,7 @@ public class HidePlayer : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == player)
+        if (other.gameObject == Player)
         {
             HideText.text = $"Press '{InputMapper.controls["Interact"]}' to hide";
             CanHide = true;
@@ -81,7 +81,7 @@ public class HidePlayer : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject == player)
+        if (other.gameObject == Player)
         {
             HideText.text = string.Empty;
             CanHide = false;
