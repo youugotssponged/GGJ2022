@@ -26,11 +26,20 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerRigidBody = GetComponent<Rigidbody>(); 
         Jump = new Vector3(0.0f, 2.0f, 0.0f);
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.visible = !Cursor.visible;
+            Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;
+        }
+
         if (CanMove)
         {
             MovePlayer();

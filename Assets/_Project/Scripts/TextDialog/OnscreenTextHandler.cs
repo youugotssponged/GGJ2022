@@ -8,15 +8,10 @@ public class OnscreenTextHandler : MonoBehaviour
     public GameObject PlayerObject;
     public Text ScreenText;
     public TextAsset TextFile;
+    public Image TextBackground;
 
-    private bool Triggered = false;
     private bool WaitingForInput = false;
     private bool ScreenClicked = false;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -28,14 +23,11 @@ public class OnscreenTextHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == PlayerObject && !Triggered)
+        if (other.gameObject == PlayerObject)
         {
-            Debug.Log("Trigger Entered.");
-            Triggered = true;
+            string[] stringArray = TextFile.text.Split("\n");
 
-            string[] testArray = TextFile.text.Split("\n");
-
-            StartCoroutine(UpdateText(testArray));
+            StartCoroutine(UpdateText(stringArray));
         }
     }
 
@@ -44,6 +36,7 @@ public class OnscreenTextHandler : MonoBehaviour
         // Stop playing moving
         PlayerMovement playerMovementscript = PlayerObject.GetComponent<PlayerMovement>();
         playerMovementscript.CanMove = false;
+        TextBackground.enabled = true;
 
         // Split into sentences.
         foreach (string sentence in textArray)
@@ -71,9 +64,12 @@ public class OnscreenTextHandler : MonoBehaviour
 
             yield return new WaitForSeconds(0.2f);
         }
-        
+
+        TextBackground.enabled = false;
         // Allow player movement
         playerMovementscript.CanMove = true;
+
+        Destroy(this.gameObject);
 
         yield return 0;
     }

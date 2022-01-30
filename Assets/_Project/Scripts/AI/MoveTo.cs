@@ -44,7 +44,7 @@ public class MoveTo : MonoBehaviour
             if (agent.destination != PlayerLastSeenPosition)
                 agent.destination = PlayerLastSeenPosition;
 
-            TargetCooldown -= 0.02f;
+            TargetCooldown -= 0.1f;
 
             if (TargetCooldown <= 0)
             {

@@ -10,12 +10,16 @@ public class PauseMenuController : MonoBehaviour
     public bool isPaused;
     public GameObject PausePanel;
     public GameObject SettingsPanel;
+    public GameObject PlayerObject;
+
+    private PlayerMovement PlayerMovementScript;
 
     // Start is called before the first frame update
     private void Start()
     {
         isPaused = false;
         AudioSource = GetComponent<AudioSource>();
+        PlayerMovementScript = PlayerObject.GetComponent<PlayerMovement>();
     }
 
     // Update is called once per frame
@@ -38,6 +42,7 @@ public class PauseMenuController : MonoBehaviour
         isPaused = true;
         Time.timeScale = 0f;
         PausePanel.SetActive(true);
+        PlayerMovementScript.CanMove = false;
 
         return true;
     }
@@ -49,6 +54,11 @@ public class PauseMenuController : MonoBehaviour
 
         // Close settings if not already closed, this deals with the issue of having settings open and unpausing
         CloseSettingsPanel();
+
+        PlayerMovementScript.CanMove = true;
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
 
         return isPaused;
     }
