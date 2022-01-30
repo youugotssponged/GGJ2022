@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 1332434197860564439}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -216,5 +216,5 @@ MonoBehaviour:
   JumpForce: 2
   CanMove: 1
   PlayerCamera: {fileID: 1332434196259813967}
-  WalkSpeed: 2
-  RunSpeed: 4
+  WalkSpeed: 8
+  RunSpeed: 12

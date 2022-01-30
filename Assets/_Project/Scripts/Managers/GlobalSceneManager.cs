@@ -46,19 +46,19 @@ public class GlobalSceneManager : MonoBehaviour
                 break;
 
             case SceneManagerState.LEVEL_DENIAL:
-                SceneManager.LoadScene("DENIAL");
+                SceneManager.LoadScene("LEVEL_DENIAL");
                 break;
 
             case SceneManagerState.LEVEL_ANGER:
-                SceneManager.LoadScene("ANGER");
+                SceneManager.LoadScene("Anger 2");
                 break;
 
             case SceneManagerState.LEVEL_DEPRESSION:
-                SceneManager.LoadScene("DEPRESSION");
+                SceneManager.LoadScene("Depression 3");
                 break;
 
             case SceneManagerState.LEVEL_ACCEPTANCE:
-                SceneManager.LoadScene("ACCEPTANCE");
+                SceneManager.LoadScene("LEVEL_ACCEPTANCE");
                 break;
 
             case SceneManagerState.LOADINGSCREEN:

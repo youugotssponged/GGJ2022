@@ -6571,6 +6571,7 @@ MonoBehaviour:
   isPaused: 0
   PausePanel: {fileID: 5842137281595554144}
   SettingsPanel: {fileID: 5842137282080036250}
+  PlayerObject: {fileID: 0}
 --- !u!1 &5842137283135902969
 GameObject:
   m_ObjectHideFlags: 0
