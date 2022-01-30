@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,8 +97,8 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 1a6916e7a115869479ad6571b3d94511, type: 2}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 183be3965d783d0469b6988a533f5ddd, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -262,7 +262,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: 9947a6e7e8c8208469c1c86e15f5c089, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 9947a6e7e8c8208469c1c86e15f5c089, type: 3}
       propertyPath: m_RootOrder
@@ -4644,7 +4644,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!64 &418959582
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -12320,7 +12320,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh68734
+  m_Name: pb_Mesh127318
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -21991,7 +21991,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!108 &1912873561
 Light:
   m_ObjectHideFlags: 0
@@ -22164,9 +22164,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1184221409350975673, guid: 9aa1995f657ef624c95c9eb15939e377, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 439.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184221409350975673, guid: 9aa1995f657ef624c95c9eb15939e377, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 63.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1184221409350975678, guid: 9aa1995f657ef624c95c9eb15939e377, type: 3}
       propertyPath: m_Text
       value: Feelings of severe despondency and dejection.
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184221409350975678, guid: 9aa1995f657ef624c95c9eb15939e377, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1184221409350975678, guid: 9aa1995f657ef624c95c9eb15939e377, type: 3}
       propertyPath: m_Color.b
@@ -22183,6 +22195,10 @@ PrefabInstance:
     - target: {fileID: 1184221409443950145, guid: 9aa1995f657ef624c95c9eb15939e377, type: 3}
       propertyPath: m_Text
       value: Depression
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184221409443950145, guid: 9aa1995f657ef624c95c9eb15939e377, type: 3}
+      propertyPath: m_Color.a
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1184221409443950145, guid: 9aa1995f657ef624c95c9eb15939e377, type: 3}
       propertyPath: m_Color.b

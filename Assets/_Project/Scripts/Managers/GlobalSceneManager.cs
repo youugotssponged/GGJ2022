@@ -87,6 +87,10 @@ public class GlobalSceneManager : MonoBehaviour
                 SceneManager.LoadScene("Instructions");
                 break;
 
+            case SceneManagerState.CREDITS:
+                SceneManager.LoadScene("Credits");
+                break;
+
             default:
                 break;
         }

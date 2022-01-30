@@ -22,6 +22,8 @@ public class CreditsController : MonoBehaviour
     private void Start()
     {
         AudioSource = GetComponent<AudioSource>();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
 
