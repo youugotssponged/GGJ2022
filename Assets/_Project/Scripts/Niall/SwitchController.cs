@@ -8,13 +8,15 @@ public class SwitchController : MonoBehaviour
     public Image flame;
     public AudioClip flameOnSound;
     public AudioClip flameOffSound;
-    private AudioSource audio;
-    private Color normalColor = new Color(1, 0.9568627f, 0.8392157f, 1);
+    public Light directionalLighting;
+    private new AudioSource audio;
+    private Color normalColor;
     private Color shadowRealmColour = new Color(0.6313726f, 0.254902f, 0.6078432f, 1);
     // Start is called before the first frame update
     void Start()
     {
         audio = GetComponent<AudioSource>();
+        normalColor = directionalLighting.color;
     }
 
     // Update is called once per frame
@@ -23,17 +25,26 @@ public class SwitchController : MonoBehaviour
         
     }
 
+    public void gotoNormal() {
+        GlobalStateManager._Instance.UpdateGameState(GlobalStateManager.GameState.PLAYER_NORMAL);
+        directionalLighting.transform.eulerAngles = new Vector3(50, -30, 0);
+        directionalLighting.color = normalColor;
+        flame.enabled = false;
+        audio.PlayOneShot(flameOffSound);
+    }
+
     private void OnTriggerEnter(Collider other) {
-        Light sceneLighting = GetComponentInChildren<Light>();
+        if (other.tag != "Player")
+            return;
         if (GlobalStateManager._Instance.CurrentGameState == GlobalStateManager.GameState.PLAYER_NORMAL) {
             GlobalStateManager._Instance.UpdateGameState(GlobalStateManager.GameState.PLAYER_SHADOW_REALM);
-            sceneLighting.transform.eulerAngles = new Vector3(30, -30, 0);
-            sceneLighting.color = shadowRealmColour;
+            directionalLighting.transform.eulerAngles = new Vector3(30, -30, 0);
+            directionalLighting.color = shadowRealmColour;
             StartCoroutine(fadeInFlame());
         } else if (GlobalStateManager._Instance.CurrentGameState == GlobalStateManager.GameState.PLAYER_SHADOW_REALM) {
             GlobalStateManager._Instance.UpdateGameState(GlobalStateManager.GameState.PLAYER_NORMAL);
-            sceneLighting.transform.eulerAngles = new Vector3(50, -30, 0);
-            sceneLighting.color = normalColor;
+            directionalLighting.transform.eulerAngles = new Vector3(50, -30, 0);
+            directionalLighting.color = normalColor;
             flame.enabled = false;
             StartCoroutine(fadeOutFlame());
         }

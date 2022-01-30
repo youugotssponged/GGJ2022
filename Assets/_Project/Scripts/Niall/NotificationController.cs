@@ -6,7 +6,6 @@ using System.Linq;
 
 public class NotificationController : MonoBehaviour
 {
-    public GameObject player;
     public static Dictionary<GameObject, Canvas> gameObjectHints = new Dictionary<GameObject, Canvas>();
     public Canvas gameCanvas;
     public Text notifPrefab;
@@ -20,9 +19,6 @@ public class NotificationController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (InputMapper.GetKeyDown("Interact")) {
-            ShowNotification("Picked up key");
-        }
         foreach (KeyValuePair<GameObject, Canvas> pair in gameObjectHints) {
             pair.Value.GetComponentInChildren<Text>().transform.RotateAround(pair.Key.transform.position, Vector3.up, Time.deltaTime * 45.0f);
         }
@@ -39,10 +35,10 @@ public class NotificationController : MonoBehaviour
         gameObjectHints.Remove(gameObject);
     }
 
-    void ShowNotification(string msg) {
+    public void ShowNotification(string msg) {
         Text notif = Instantiate(notifPrefab, gameCanvas.transform);
         notif.text = msg;
-        notif.transform.Translate(Vector3.right * 100 * (notifs.Count));
+        notif.transform.Translate(Vector3.down * 100 * (notifs.Count));
         notifs.Add(notif);
         StartCoroutine(FadeInNotif(notif));
     }
@@ -64,7 +60,7 @@ public class NotificationController : MonoBehaviour
         Destroy(notif.gameObject);
         notifs.Remove(notif);
         foreach (Text n in notifs)
-            n.transform.Translate(Vector3.right * -100);
+            n.transform.Translate(Vector3.down * -100);
     }
 
 }
