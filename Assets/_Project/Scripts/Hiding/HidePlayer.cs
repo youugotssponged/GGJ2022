@@ -54,6 +54,7 @@ public class HidePlayer : MonoBehaviour
         PlayerScript.PlayerCamera.transform.rotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z);
 
         CurrentlyHiding = true;
+        PlayerScript.IsHiding = true;
     }
     void StopHiding()
     {
@@ -68,6 +69,7 @@ public class HidePlayer : MonoBehaviour
         CurrentlyHiding = false;
 
         HideText.text = string.Empty;
+        PlayerScript.IsHiding = false;
     }
 
     private void OnTriggerEnter(Collider other)

@@ -55,10 +55,12 @@ public class PauseMenuController : MonoBehaviour
         // Close settings if not already closed, this deals with the issue of having settings open and unpausing
         CloseSettingsPanel();
 
-        PlayerMovementScript.CanMove = true;
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        if(!PlayerMovementScript.IsHiding)
+            PlayerMovementScript.CanMove = true;
 
         return isPaused;
     }

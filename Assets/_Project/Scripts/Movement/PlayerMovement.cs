@@ -21,6 +21,8 @@ public class PlayerMovement : MonoBehaviour
     public float WalkSpeed = 2f;
     public float RunSpeed = 4f;
 
+    public bool IsHiding = false;
+
     // Start is called before the first frame update
     void Start()
     {

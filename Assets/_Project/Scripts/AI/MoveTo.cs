@@ -16,6 +16,8 @@ public class MoveTo : MonoBehaviour
     public GameObject Player;
     public ChaseState CurrentChaseState = ChaseState.Lost;
 
+    public GlobalSceneManager.SceneManagerState ThisScene;
+
     private UnityEngine.AI.NavMeshAgent agent;
     private float TargetCooldown = 100f;
     private Vector3 PlayerLastSeenPosition;
@@ -37,6 +39,10 @@ public class MoveTo : MonoBehaviour
             agent.destination = Player.transform.position;
             PlayerLastSeenPosition = agent.destination;
             TargetCooldown = 100f;
+
+            if(agent.remainingDistance < 1.5)
+                GlobalSceneManager._Instance.UpdateSceneManagerState(ThisScene);
+
         }
         else if (CurrentChaseState == ChaseState.Searching)
         {
